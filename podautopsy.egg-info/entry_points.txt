@@ -1,0 +1,2 @@
+[console_scripts]
+podautopsy = podautopsy.cli:main
