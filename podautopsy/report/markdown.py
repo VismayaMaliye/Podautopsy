@@ -60,7 +60,7 @@ def _render(report: PostMortemReport) -> str:
             lines.append(f'| {ev["timestamp"]} | {ev["type"]} | {ev["reason"]} | {msg} |')
         lines.append('')
  
-    # Previous logs (the gold — crash logs)
+    # Previous logs (the gold -crash logs)
     if report.previous_logs:
         lines.append('## Previous Container Logs (pre-crash)')
         lines.append('')

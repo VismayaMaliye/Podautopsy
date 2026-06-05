@@ -1,4 +1,4 @@
-"""PodAutopsy CLI — entry point for all commands."""
+"""PodAutopsy CLI -entry point for all commands."""
 import click
 from rich.console import Console
  
@@ -8,7 +8,7 @@ console = Console()
 @click.group()
 @click.version_option(version='1.0.0')
 def main():
-    """PodAutopsy — Automated Kubernetes Incident Post-Mortem Generator."""
+    """PodAutopsy -Automated Kubernetes Incident Post-Mortem Generator."""
     pass
  
  

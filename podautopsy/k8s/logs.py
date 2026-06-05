@@ -23,11 +23,21 @@ def _fetch(core_v1, namespace, pod_name, tail_lines, previous=False) -> list[str
             name=pod_name,
             namespace=namespace,
             tail_lines=tail_lines,
-            previous=previous,      # True = logs from before last restart
-            timestamps=True,        # prefix each line with timestamp
+            previous=previous,
+            timestamps=True,
         )
+        # Handle bytes or string
         if isinstance(raw, bytes):
             raw = raw.decode('utf-8')
-        return raw.splitlines() if raw else []
+        elif not isinstance(raw, str):
+            raw = str(raw)
+        
+        # Remove literal b'...' wrapping if present
+        if raw.startswith("b'") or raw.startswith('b"'):
+            raw = raw[2:-1]
+            raw = raw.replace('\\n', '\n').replace('\\t', '\t')
+
+        lines = [l for l in raw.splitlines() if l.strip()]
+        return [l for l in lines if not l.startswith('unable to retrieve container logs')]
     except Exception:
-        return []   # Pod may not have logs yet, or previous container gone
+        return []

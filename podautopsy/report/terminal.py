@@ -36,7 +36,7 @@ def print_report(report: PostMortemReport) -> None:
  
     # ── Header ────────────────────────────────────────────────
     console.print()
-    console.print(Rule('[bold red]PodAutopsy — Incident Report[/]', style='red'))
+    console.print(Rule('[bold red]PodAutopsy -Incident Report[/]', style='red'))
     console.print()
  
     # ── Failure Banner ────────────────────────────────────────

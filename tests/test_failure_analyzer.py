@@ -1,4 +1,4 @@
-"""Unit tests for failure detection — no K8s cluster needed."""
+"""Unit tests for failure detection -no K8s cluster needed."""
 from podautopsy.models import PostMortemReport, ContainerState, PodEvent, FailureType
 from podautopsy.analyzer.failure import detect_failure
  

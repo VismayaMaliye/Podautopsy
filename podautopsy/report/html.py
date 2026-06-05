@@ -54,7 +54,7 @@ def _render_html(report: PostMortemReport) -> str:
  
     return f'''<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
-<title>PodAutopsy — {report.pod_name}</title>
+<title>PodAutopsy -{report.pod_name}</title>
 <style>
   body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: #0f0f1a; color: #e0e0e0; margin: 0; padding: 20px; }}
@@ -79,7 +79,7 @@ def _render_html(report: PostMortemReport) -> str:
   code {{ background: #2a2a4a; padding: 2px 6px; border-radius: 3px; }}
 </style></head><body>
 <div class="header">
-  <h1>PodAutopsy — Incident Report</h1>
+  <h1>PodAutopsy - Incident Report</h1>
   <p><span class="badge">{report.failure_type.value}</span></p>
   <p><strong>Pod:</strong> {report.pod_name} &nbsp;|&nbsp;
      <strong>Namespace:</strong> {report.namespace} &nbsp;|&nbsp;

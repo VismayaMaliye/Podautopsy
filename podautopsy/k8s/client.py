@@ -1,4 +1,4 @@
-"""Kubernetes client initialisation — supports both local kubeconfig and in-cluster."""
+"""Kubernetes client initialisation -supports both local kubeconfig and in-cluster."""
 import os
 from kubernetes import client, config
 from kubernetes.client import CoreV1Api, AppsV1Api

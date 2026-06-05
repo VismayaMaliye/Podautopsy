@@ -17,7 +17,7 @@ FIXES = {
     ),
     FailureType.CRASH_LOOP: (
         'Container is crashing and Kubernetes keeps restarting it. '
-        'Check the previous container logs (above) for the actual crash reason — '
+        'Check the previous container logs (above) for the actual crash reason -'
         'CrashLoopBackOff is a symptom, not the root cause. Common causes: '
         'missing env vars/secrets, failed DB connection on startup, bad entrypoint.'
     ),
@@ -63,7 +63,7 @@ def _detect(report: PostMortemReport) -> tuple[FailureType, str]:
     for container in report.containers:
         reason = (container.reason or '').strip()
  
-        # OOMKilled — container exceeded memory limit
+        # OOMKilled -container exceeded memory limit
         if reason == 'OOMKilled' or container.exit_code == 137:
             return FailureType.OOM_KILLED, (
                 f'Container {container.name!r} was OOMKilled '
@@ -71,7 +71,7 @@ def _detect(report: PostMortemReport) -> tuple[FailureType, str]:
                 f'Restart count: {container.restart_count}.'
             )
  
-        # CrashLoopBackOff — container keeps crashing on restart
+        # CrashLoopBackOff -container keeps crashing on restart
         if reason == 'CrashLoopBackOff':
             return FailureType.CRASH_LOOP, (
                 f'Container {container.name!r} is in CrashLoopBackOff. '
@@ -79,14 +79,14 @@ def _detect(report: PostMortemReport) -> tuple[FailureType, str]:
                 f'Check previous container logs for the real crash reason.'
             )
  
-        # ImagePullBackOff — cannot pull container image
+        # ImagePullBackOff -cannot pull container image
         if reason in ('ImagePullBackOff', 'ErrImagePull'):
             return FailureType.IMAGE_PULL, (
                 f'Container {container.name!r} cannot pull its image. '
                 f'Reason: {reason}.'
             )
  
-        # Error exit — non-zero exit code that is not OOM
+        # Error exit -non-zero exit code that is not OOM
         if container.state == 'terminated' and container.exit_code not in (0, None, 137):
             return FailureType.CRASH_LOOP, (
                 f'Container {container.name!r} exited with code {container.exit_code}. '
