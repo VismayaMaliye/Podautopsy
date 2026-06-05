@@ -49,7 +49,5 @@ def test_unknown_when_no_signals():
     report = make_report()
     detect_failure(report)
     assert report.failure_type == FailureType.UNKNOWN
-  Run tests
-pytest tests/test_failure_analyzer.py -v
-# All 5 tests should pass — no K8s cluster needed
+
 
