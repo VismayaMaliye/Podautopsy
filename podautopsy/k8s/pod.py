@@ -1,8 +1,6 @@
 """Fetch pod metadata, container states, and restart history."""
-from datetime import datetime, timezone
-from typing import Optional
 from kubernetes.client import CoreV1Api, V1Pod
-from podautopsy.models import PostMortemReport, ContainerState, FailureType
+from podautopsy.models import PostMortemReport, ContainerState
  
  
 def fetch_pod_data(core_v1: CoreV1Api, namespace: str, pod_name: str) -> PostMortemReport:

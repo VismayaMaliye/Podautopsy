@@ -1,6 +1,5 @@
 """Generate Markdown incident reports."""
 import os
-from datetime import datetime
 from podautopsy.models import PostMortemReport
 from podautopsy.analyzer.timeline import build_timeline
  
@@ -18,19 +17,19 @@ def save_markdown(report: PostMortemReport) -> str:
 def _render(report: PostMortemReport) -> str:
     lines = []
     lines.append(f'# Incident Report: {report.pod_name}')
-    lines.append(f'')
+    lines.append('')
     lines.append(f'**Generated:** {report.generated_at.strftime("%Y-%m-%d %H:%M:%S UTC")}')
     lines.append(f'**Namespace:** `{report.namespace}`')
     lines.append(f'**Node:** `{report.node_name or "N/A"}`')
-    lines.append(f'')
-    lines.append(f'---')
-    lines.append(f'')
+    lines.append('')
+    lines.append('---')
+    lines.append('')
     lines.append(f'## ⚠️  Failure Type: {report.failure_type.value}')
-    lines.append(f'')
+    lines.append('')
     lines.append(f'> {report.failure_summary}')
-    lines.append(f'')
+    lines.append('')
     lines.append(f'**Suggested Fix:** {report.suggested_fix}')
-    lines.append(f'')
+    lines.append('')
  
     # Containers
     lines.append('## Container States')

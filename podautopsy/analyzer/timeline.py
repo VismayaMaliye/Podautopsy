@@ -1,5 +1,4 @@
 """Build a chronological timeline from events for display in reports."""
-from datetime import datetime, timezone
 from podautopsy.models import PodEvent
  
  

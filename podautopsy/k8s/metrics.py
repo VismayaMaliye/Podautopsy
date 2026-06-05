@@ -1,7 +1,6 @@
 """Fetch live resource usage from metrics-server (if installed)."""
-from kubernetes import client, config
+from kubernetes import client
 from podautopsy.models import ResourceUsage
-import re
  
  
 def fetch_resource_usage(namespace: str, pod_name: str) -> ResourceUsage:
