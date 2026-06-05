@@ -2,7 +2,7 @@
 
 Automated Kubernetes incident post-mortem generator.
 
-When a pod crashes, engineers normally spend 30–60 minutes manually running
+When a pod crashes, engineers normally spend 30-60 minutes manually running
 kubectl commands to piece together what happened. PodAutopsy collects all
 of that data in 3 seconds and presents it as a structured, shareable report.
 
