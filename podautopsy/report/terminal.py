@@ -59,7 +59,7 @@ def print_report(report: PostMortemReport) -> None:
  
     # ── Failure Summary ───────────────────────────────────────
     console.print(Panel(
-        f'[bold]{color}]{report.failure_summary}[/]\n\n[dim]{report.suggested_fix}[/]',
+        f'[bold]{report.failure_summary}[/]\n\n[dim]{report.suggested_fix}[/]',
         title=f'[bold {color}]Root Cause & Suggested Fix[/]',
         border_style=color, padding=(1, 2)
     ))
