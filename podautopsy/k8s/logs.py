@@ -37,7 +37,7 @@ def _fetch(core_v1, namespace, pod_name, tail_lines, previous=False) -> list[str
             raw = raw[2:-1]
             raw = raw.replace('\\n', '\n').replace('\\t', '\t')
 
-        lines = [l for l in raw.splitlines() if l.strip()]
-        return [l for l in lines if not l.startswith('unable to retrieve container logs')]
+        lines = [line for line in raw.splitlines() if line.strip()]
+        return [line for line in lines if not line.startswith('unable to retrieve container logs')]
     except Exception:
         return []
