@@ -26,6 +26,8 @@ def _fetch(core_v1, namespace, pod_name, tail_lines, previous=False) -> list[str
             previous=previous,      # True = logs from before last restart
             timestamps=True,        # prefix each line with timestamp
         )
+        if isinstance(raw, bytes):
+            raw = raw.decode('utf-8')
         return raw.splitlines() if raw else []
     except Exception:
         return []   # Pod may not have logs yet, or previous container gone

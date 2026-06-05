@@ -17,6 +17,7 @@ dependencies = [
   "jinja2>=3.1",
   "python-dateutil>=2.8",
   "pydantic>=2.0",
+  "anthropic>=0.25",
 ]
 
 [project.scripts]
@@ -33,3 +34,6 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["."]

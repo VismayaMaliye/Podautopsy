@@ -23,5 +23,6 @@ podautopsy/report/__init__.py
 podautopsy/report/html.py
 podautopsy/report/markdown.py
 podautopsy/report/terminal.py
+tests/__init__.py
 tests/test_cli.py
 tests/test_failure_analyzer.py

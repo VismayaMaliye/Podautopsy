@@ -78,10 +78,12 @@ def _has_crashing_container(pod) -> bool:
     if not pod.status or not pod.status.container_statuses:
         return False
     for cs in pod.status.container_statuses:
-        if cs.restart_count and cs.restart_count > 0:
-            return True
+        # Only flag if currently in a bad waiting state
         if cs.state and cs.state.waiting:
             reason = cs.state.waiting.reason or ''
             if reason in ('CrashLoopBackOff', 'OOMKilled', 'ImagePullBackOff', 'ErrImagePull'):
                 return True
+        # Or if restarting frequently right now (not just once from a node reboot)
+        if cs.restart_count and cs.restart_count > 3:
+            return True
     return False
