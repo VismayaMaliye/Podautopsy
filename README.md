@@ -34,6 +34,12 @@ podautopsy analyze --namespace prod --pod payment-service-7d9f --output html
 podautopsy scan --namespace prod
 ```
 
+## Examples
+<img width="1440" height="789" alt="Screenshot 2026-06-05 at 5 07 35 PM" src="https://github.com/user-attachments/assets/c6209107-cfc5-4156-ae32-e6a3957afe32" />
+<img width="1440" height="853" alt="Screenshot 2026-06-05 at 5 09 03 PM" src="https://github.com/user-attachments/assets/9581d7da-a2eb-47a3-87d0-7260760c9347" />
+<img width="1440" height="887" alt="Screenshot 2026-06-05 at 5 06 46 PM" src="https://github.com/user-attachments/assets/4ed4f8fe-817b-442f-ae7e-3794d4e45989" />
+
+
 ## Requirements
 
 - Python 3.10+
